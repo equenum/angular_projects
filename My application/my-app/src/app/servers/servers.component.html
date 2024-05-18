@@ -24,12 +24,18 @@
 <!-- <p [innerHtml]="enableAddingNew"></p> -->
 
 <!-- event binding -->
-<!-- ngIf directive with an else condition -->
+
+<p *ngIf="serverCreated">{{ serverCreateStatus }}</p>
+
+<!-- ngIf directive with an else condition
 <p *ngIf="serverCreated; else noServer">{{ serverCreateStatus }}</p>
-<!-- #noServer - local reference -->
+
+#noServer - local reference 
 <ng-template #noServer>
   <p>No server was created yet.</p>
-</ng-template>
+</ng-template> -->
+
+<hr />
 
 <app-server>Loading...</app-server>
 <app-server>Loading...</app-server>
