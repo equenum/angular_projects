@@ -37,5 +37,7 @@
 
 <hr />
 
-<app-server>Loading...</app-server>
-<app-server>Loading...</app-server>
+<!-- can extract current iteration index with 'index' -->
+<app-server *ngFor="let server of servers; let i = index"
+  >Loading...</app-server
+>
