@@ -19,10 +19,15 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
   enableAddingNew = false;
+  serverCreateStatus = 'No servers created yet.';
 
   constructor() {
     setTimeout(() => {
       this.enableAddingNew = true;
     }, 2000);
+  }
+
+  onCreateServer() {
+    this.serverCreateStatus = 'Servers created.';
   }
 }
