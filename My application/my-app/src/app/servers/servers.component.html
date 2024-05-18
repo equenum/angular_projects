@@ -1,5 +1,12 @@
 <button class="btn btn-primary" [disabled]="!enableAddingNew">
   Add server
 </button>
+
+<!-- string interpolation -->
+<p>{{ enableAddingNew }}</p>
+
+<!-- property binding -->
+<p [innerHtml]="enableAddingNew"></p>
+
 <app-server>Loading...</app-server>
 <app-server>Loading...</app-server>
