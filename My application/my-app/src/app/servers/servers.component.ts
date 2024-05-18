@@ -20,6 +20,7 @@ import { Component } from '@angular/core';
 export class ServersComponent {
   enableAddingNew = false;
   serverCreateStatus = 'No servers created yet.';
+  serverName = '';
 
   constructor() {
     setTimeout(() => {
@@ -27,7 +28,14 @@ export class ServersComponent {
     }, 2000);
   }
 
+  // event binding
   onCreateServer() {
     this.serverCreateStatus = 'Servers created.';
+  }
+
+  // event binding with passing the event object
+  onUpdateServerName(event: Event) {
+    var inputElement = event.target as HTMLInputElement;
+    this.serverName = inputElement.value;
   }
 }

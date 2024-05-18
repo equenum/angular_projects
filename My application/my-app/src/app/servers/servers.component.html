@@ -1,10 +1,21 @@
+<label for="createServerButton">ServerName</label>
+
+<!-- input with one-way binding -->
+<input type="text" class="form-control" (input)="onUpdateServerName($event)" />
+
+<!-- input with two-way binding via ngModel -->
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+
 <button
+  id="createServerButton"
   class="btn btn-primary"
   [disabled]="!enableAddingNew"
   (click)="onCreateServer()"
 >
   Add server
 </button>
+
+<p>{{ serverName }}</p>
 
 <!-- string interpolation -->
 <p>{{ enableAddingNew }}</p>
