@@ -1,7 +1,7 @@
 <label for="createServerButton">ServerName</label>
 
 <!-- input with one-way binding -->
-<input type="text" class="form-control" (input)="onUpdateServerName($event)" />
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)" /> -->
 
 <!-- input with two-way binding via ngModel -->
 <input type="text" class="form-control" [(ngModel)]="serverName" />
@@ -15,16 +15,21 @@
   Add server
 </button>
 
-<p>{{ serverName }}</p>
+<!-- <p>{{ serverName }}</p> -->
 
 <!-- string interpolation -->
-<p>{{ enableAddingNew }}</p>
+<!--  <p>{{ enableAddingNew }}</p> -->
 
 <!-- property binding -->
-<p [innerHtml]="enableAddingNew"></p>
+<!-- <p [innerHtml]="enableAddingNew"></p> -->
 
 <!-- event binding -->
-<p>{{ serverCreateStatus }}</p>
+<!-- ngIf directive with an else condition -->
+<p *ngIf="serverCreated; else noServer">{{ serverCreateStatus }}</p>
+<!-- #noServer - local reference -->
+<ng-template #noServer>
+  <p>No server was created yet.</p>
+</ng-template>
 
 <app-server>Loading...</app-server>
 <app-server>Loading...</app-server>

@@ -19,8 +19,9 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
   enableAddingNew = false;
-  serverCreateStatus = 'No servers created yet.';
+  serverCreateStatus = '';
   serverName = '';
+  serverCreated = false;
 
   constructor() {
     setTimeout(() => {
@@ -30,7 +31,8 @@ export class ServersComponent {
 
   // event binding
   onCreateServer() {
-    this.serverCreateStatus = 'Servers created.';
+    this.serverCreateStatus = 'Servers created. Name: ' + this.serverName;
+    this.serverCreated = true;
   }
 
   // event binding with passing the event object
