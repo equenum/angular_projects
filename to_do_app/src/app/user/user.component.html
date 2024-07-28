@@ -2,8 +2,8 @@
   <button (click)="onSelectUser()">
     <!-- event binding -->
     <!-- property binding -->
-    <img [src]="avatarUrl()" [alt]="user().id" />
+    <img [src]="avatarUrl" [alt]="id" />
     <!-- string interpolation -->
-    <span>{{ user().name }}</span>
+    <span>{{ name }}</span>
   </button>
 </div>

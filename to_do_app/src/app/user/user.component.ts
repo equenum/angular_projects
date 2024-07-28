@@ -1,6 +1,4 @@
-import { Component, computed, signal, WritableSignal } from '@angular/core';
-import { User } from '../models/user';
-import { DUMMY_USERS } from '../data/dummy-users';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -10,16 +8,16 @@ import { DUMMY_USERS } from '../data/dummy-users';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  user: WritableSignal<User>;
-  avatarUrl = computed(() => 'assets/users/' + this.user().avatar);
+  // Input accepts a configuration object
+  @Input({ required: true }) avatar!: string; // component input property binding
+  @Input({ required: true }) name!: string;
+  @Input({ required: true }) id!: string;
 
-  constructor() {
-    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-    this.user = signal(DUMMY_USERS[randomIndex] as User);
+  get avatarUrl() {
+    return 'assets/users/' + this.avatar;
   }
 
   onSelectUser(): void {
-    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-    this.user.set(DUMMY_USERS[randomIndex] as User);
+    console.log(`User ${this.id} clicked`);
   }
 }
