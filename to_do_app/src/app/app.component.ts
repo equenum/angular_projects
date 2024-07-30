@@ -17,4 +17,8 @@ export class AppComponent {
   constructor() {
     this.users = DUMMY_USERS as User[];
   }
+
+  onSelectUser(id: string) {
+    console.log(`Selected user with id: ${id}.`);
+  }
 }

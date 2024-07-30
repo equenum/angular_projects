@@ -1,4 +1,4 @@
-import { Component, Input, input, signal } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -9,18 +9,18 @@ import { Component, Input, input, signal } from '@angular/core';
 })
 export class UserComponent {
   // Input accepts a configuration object
-  // @Input({ required: true }) avatar!: string; // component input property binding
-  // @Input({ required: true }) name!: string;
-  // @Input({ required: true }) id!: string;
-  avatar = input.required<string>();
-  name = input.required<string>();
-  id = input.required<string>();
+  @Input({ required: true }) avatar!: string; // component input property binding
+  @Input({ required: true }) name!: string;
+  @Input({ required: true }) id!: string;
+
+  // emits an event that can be consumed by parent components
+  @Output() userSelected = new EventEmitter();
 
   get avatarUrl() {
     return 'assets/users/' + this.avatar;
   }
 
   onSelectUser(): void {
-    console.log(`User ${this.id} clicked`);
+    this.userSelected.emit(this.id);
   }
 }
