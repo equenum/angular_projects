@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -9,9 +9,12 @@ import { Component, Input } from '@angular/core';
 })
 export class UserComponent {
   // Input accepts a configuration object
-  @Input({ required: true }) avatar!: string; // component input property binding
-  @Input({ required: true }) name!: string;
-  @Input({ required: true }) id!: string;
+  // @Input({ required: true }) avatar!: string; // component input property binding
+  // @Input({ required: true }) name!: string;
+  // @Input({ required: true }) id!: string;
+  avatar = input.required<string>();
+  name = input.required<string>();
+  id = input.required<string>();
 
   get avatarUrl() {
     return 'assets/users/' + this.avatar;
