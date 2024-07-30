@@ -14,7 +14,7 @@ export class UserComponent {
   @Input({ required: true }) id!: string;
 
   // emits an event that can be consumed by parent components
-  @Output() userSelected = new EventEmitter();
+  @Output() userSelected = new EventEmitter<string>();
 
   get avatarUrl() {
     return 'assets/users/' + this.avatar;
