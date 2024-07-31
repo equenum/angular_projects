@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-user',
@@ -9,18 +10,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class UserComponent {
   // Input accepts a configuration object
-  @Input({ required: true }) avatar!: string; // component input property binding
-  @Input({ required: true }) name!: string;
-  @Input({ required: true }) id!: string;
+  @Input({ required: true }) user!: User;
 
   // emits an event that can be consumed by parent components
   @Output() userSelected = new EventEmitter<string>();
 
   get avatarUrl() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser(): void {
-    this.userSelected.emit(this.id);
+    this.userSelected.emit(this.user.id);
   }
 }
