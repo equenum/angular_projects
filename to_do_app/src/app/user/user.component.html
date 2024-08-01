@@ -1,6 +1,6 @@
 <div>
-  <button (click)="onSelectUser()">
-    <!-- event binding -->
+  <!-- event binding -->
+  <button [class.active]="isSelected" (click)="onSelectUser()">
     <!-- property binding -->
     <img [src]="avatarUrl" [alt]="user.id" />
     <!-- string interpolation -->

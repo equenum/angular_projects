@@ -11,6 +11,7 @@ import type { User } from './user.model';
 export class UserComponent {
   // Input accepts a configuration object
   @Input({ required: true }) user!: User;
+  @Input({ required: true }) isSelected!: boolean;
 
   // emits an event that can be consumed by parent components
   @Output() userSelected = new EventEmitter<string>();
