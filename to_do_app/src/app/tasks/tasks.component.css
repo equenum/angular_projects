@@ -30,6 +30,7 @@ menu button {
   font: inherit;
   cursor: pointer;
   background-color: #32a797;
+  color: #cfcecf;
   border-radius: 4px;
   border: none;
   padding: 0.35rem 0.8rem;
@@ -39,6 +40,7 @@ menu button {
 menu button:hover,
 menu button:active {
   background-color: #3cbead;
+  color: black;
 }
 
 ul {
